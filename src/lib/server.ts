@@ -11,6 +11,22 @@ const server = {} as Server;
 server.httpServer = http.createServer((req: IncomingMessage, res: ServerResponse) => {
     console.log(req.url);
 
+    const textFiles = ['.css', '.js' , '.svg' ];
+
+    const splitedurl = req.url.split('/');
+
+    for ( const element of textFiles){
+        if(splitedurl[splitedurl.length] === element){
+            isTextFile = true;
+        }
+    }
+
+    
+    
+
+
+
+
     const isTextFile = false;       // galune: .css, .js, .svg, ...
     const isBinaryFile = false;     // galune: .png, .jpg, .webp, .eot, .ttf, ...
     const isAPI = false;            // url prasideda: /api/.....
